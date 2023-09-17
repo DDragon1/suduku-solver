@@ -1,0 +1,22 @@
+{
+  "name": "suduku",
+  "version": "1.0.0",
+  "description": "A suduku solver project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DDragon1/suduku-solver.git"
+  },
+  "keywords": [
+    "suduku"
+  ],
+  "author": "Shimon Sharafi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DDragon1/suduku-solver/issues"
+  },
+  "homepage": "https://github.com/DDragon1/suduku-solver#readme"
+}
