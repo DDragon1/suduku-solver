@@ -2,9 +2,11 @@
   "name": "suduku",
   "version": "1.0.0",
   "description": "A suduku solver project",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "start": "node dist/index.ts",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.ts\""
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/DDragon1/suduku-solver/issues"
   },
-  "homepage": "https://github.com/DDragon1/suduku-solver#readme"
+  "homepage": "https://github.com/DDragon1/suduku-solver#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "twilio": "^4.17.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1"
+  }
 }
