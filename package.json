@@ -1,7 +1,7 @@
 {
-  "name": "suduku",
+  "name": "sudoku",
   "version": "1.0.0",
-  "description": "A suduku solver project",
+  "description": "A sudoku solver project",
   "main": "index.ts",
   "scripts": {
     "build": "npx tsc",
@@ -10,17 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DDragon1/suduku-solver.git"
+    "url": "git+https://github.com/DDragon1/sudoku-solver.git"
   },
   "keywords": [
-    "suduku"
+    "sudoku"
   ],
   "author": "Shimon Sharafi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DDragon1/suduku-solver/issues"
+    "url": "https://github.com/DDragon1/sudoku-solver/issues"
   },
-  "homepage": "https://github.com/DDragon1/suduku-solver#readme",
+  "homepage": "https://github.com/DDragon1/sudoku-solver#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
