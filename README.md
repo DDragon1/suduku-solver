@@ -1,2 +1,2 @@
-# suduku-solver
-A suduku solver project
+# sudoku-solver
+A sudoku solver project
