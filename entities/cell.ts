@@ -15,4 +15,11 @@ export class Cell {
     toString() {
         return this.value ?? 0
     }
+
+    toJSON() {
+        return { 
+            "value": this.value,
+            "possibilities": [...this.possibilities]
+        } 
+    }
 }

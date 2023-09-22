@@ -1,21 +1,54 @@
 import express, { Express, Request, Response } from "express";
-import * as board from "./entities/board"
-import { run } from "./logic/logic";
+import bodyParser from "body-parser";
+import {Board} from "./entities/board"
+import * as logic from "./logic/logic";
 const app: Express = express();
 const port = 3000;
+let board : Board
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
 
+app.post('/start', (req: Request, res: Response) => {
+  try {
+    board = new Board(req.body)
+    res.send(board.toString());
+  } catch(err) {
+    res.status(400).send("Bad input: " + err)
+  }
+});
+
+app.get('/board', (req: Request, res: Response) => {
+  res.send(board.toString());
+});
+
+app.get('/removePossibilies', (req: Request, res: Response) => {
+  logic.removePossibilies(board)  
+  res.json(board)
+});
+
+app.get('/step', (req: Request, res: Response) => {
+  logic.step(board)  
+  res.json(board)
+});
+
+app.get('/solve', (req: Request, res: Response) => {
+  logic.solve(board)  
+  res.json(board)
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:$[port]`);
-  let init: number[][] = []
-  let b = new board.Board(getInput())
-  console.log("before calculations:")
-  console.log(b.toString())
-  run(b)
-  console.log(b.toString())
+  console.log(`Sudoku solver app listening at http://localhost:${port}`);
+  //let init: number[][] = []
+  //board = new Board(getInput())
+  //console.log("before calculations:")
+  //console.log(board.toString())
+  //logic.solve(board)
+  //console.log(board.toString())
 });
 
 function getInput() : number[][] {
