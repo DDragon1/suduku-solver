@@ -23,7 +23,7 @@ export function solve(b : Board) : boolean {
 
 function baseLogic(b: Board, functions: ((b: Board) => boolean)[]): boolean {
     let changed = false
-    for (const func of removePossibiliesFunctions()) {
+    for (const func of functions) {
         changed = func(b) || changed;
       }
     return changed

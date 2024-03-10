@@ -5,7 +5,7 @@ export function calculateRows(b: Board) : boolean {
     let changed : boolean = false
 
     for (let i=0; i < BOARD_SIZE; i++) {
-        changed = changed || calculateRow(b, i)
+        changed = calculateRow(b, i) || changed
     }
     return changed
 }
@@ -14,7 +14,7 @@ export function calculateCols(b: Board) : boolean {
     let changed : boolean = false
 
     for (let i=0; i < BOARD_SIZE; i++) {
-        changed = changed || calculateCol(b, i)
+        changed = calculateCol(b, i) || changed
     }
     return changed
 }
@@ -24,7 +24,7 @@ export function calculateBlocks(b: Board) : boolean {
 
     for (let i=0; i < BOARD_BLOCK; i++) {
         for (let j=0; j < BOARD_BLOCK; j++) {
-            changed = changed || calculateBlock(b, i, j)
+            changed = calculateBlock(b, i, j) || changed
         }
     }
     return changed
@@ -85,7 +85,7 @@ function calculateBlock(b: Board,  blockRow: number, blockCol: number) : boolean
 
 function cellCheck (cell : Cell, existingValues: Set<number>, changed: boolean) : boolean {
     if (!cell.value) {
-        existingValues.forEach( v => changed = changed || cell.possibilities.delete(v))
+        existingValues.forEach( v => changed = cell.possibilities.delete(v) || changed)
         if (cell.possibilities.size === 1)
             cell.possibilities.forEach(v => cell.value = v)
     }

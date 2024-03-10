@@ -5,7 +5,7 @@ export function eliminateRows(b: Board) : boolean {
     let changed : boolean = false
 
     for (let i=0; i < BOARD_SIZE; i++) {
-        changed = changed || eliminateRow(b, i)
+        changed = eliminateRow(b, i) || changed
     }
     return changed
 }
@@ -14,7 +14,7 @@ export function eliminateCols(b: Board) : boolean {
     let changed : boolean = false
 
     for (let i=0; i < BOARD_SIZE; i++) {
-        changed = changed || eliminateCol(b, i)
+        changed = eliminateCol(b, i) || changed
     }
     return changed
 }
@@ -24,7 +24,7 @@ export function eliminateBlocks(b: Board) : boolean {
 
     for (let i=0; i < BOARD_BLOCK; i++) {
         for (let j=0; j < BOARD_BLOCK; j++) {
-            changed = changed || eliminateBlock(b, i, j)
+            changed = eliminateBlock(b, i, j) || changed
         }
     }
     return changed

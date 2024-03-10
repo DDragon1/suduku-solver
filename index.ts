@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import {Board} from "./entities/board"
 import * as logic from "./logic/logic";
 const app: Express = express();
-const port = 3000;
+const port = 3001;
 let board : Board
 
 app.use(bodyParser.json())
@@ -23,7 +23,10 @@ app.post('/start', (req: Request, res: Response) => {
 });
 
 app.get('/board', (req: Request, res: Response) => {
-  res.send(board.toString());
+  if (board)
+    res.send(board.toString());
+  else
+    res.status(404).send('Please initialize the board.')
 });
 
 app.get('/removePossibilies', (req: Request, res: Response) => {
